@@ -1,0 +1,51 @@
+@use 'variables' as v;
+@use 'mixin' as mixin;
+@forward './common/header';
+@forward './common/footer';
+@forward './common/btn';
+
+@forward './pages/home';
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  @include mixin.scrollbar();
+  width: 100%;
+}
+
+main {
+  min-height: calc(100vh - 6rem);
+}
+
+.container {
+  @media (min-width: 0px) and (max-width: v.$screen_xs_max) {
+    padding: 0.8rem;
+    max-width: 100%;
+  }
+  @media (min-width: v.$screen_sm_min) and (max-width: v.$screen_sm_max) {
+    padding: 0.8rem;
+    max-width: 100%;
+  }
+  @media (min-width: v.$screen_md_min) and (max-width: v.$screen_md_max) {
+    padding: 1.6rem;
+    max-width: 99.2rem;
+  }
+  @media (min-width: v.$screen_lg_min) and (max-width: v.$screen_lg_max) {
+    padding: 2.4rem;
+    max-width: 120rem;
+  }
+
+  @media (min-width: v.$screen_xl) {
+    padding: 3.2rem;
+    max-width: 192rem;
+  }
+}
