@@ -1,0 +1,11 @@
+extends layout.pug
+
+block content
+    h1= title
+    div(class="product-list")
+        each cake in cakes 
+            div(class="item")
+                img(src="", alt="img")
+                h2= cake.name
+                p= cake.description 
+                span= cake.price

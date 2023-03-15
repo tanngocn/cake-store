@@ -1,0 +1,16 @@
+@use '../variables' as v;
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  background-color: v.$color_secondary;
+  color: v.$color_white;
+  min-width: 10rem;
+  transition: all 0.2s;
+  &:hover {
+    background-color: v.$color_white;
+    color: v.$color_primary;
+  }
+}

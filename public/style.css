@@ -1,0 +1,170 @@
+header {
+  position: sticky;
+  top: 0;
+}
+header nav {
+  padding: 2.4rem;
+  min-height: 2rem;
+  background-color: #ffb6c1;
+}
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 3.2rem;
+  justify-content: end;
+  align-items: center;
+}
+header nav ul li {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+}
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+  background-color: #f08080;
+  color: #fff;
+  min-width: 10rem;
+  transition: all 0.2s;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #ffb6c1;
+}
+
+.product-list {
+  max-width: 100%;
+}
+.product-list .item {
+  border: 1px solid #ffb6c1;
+  padding: 1.6rem;
+}
+.product-list .item h2 {
+  font-size: 2rem;
+  margin-bottom: 2.4rem;
+}
+.product-list .item p {
+  font-size: 1.6rem;
+  margin: 0;
+  min-height: 10rem;
+}
+.product-list .item span {
+  font-size: 1.2rem;
+  color: #f08080;
+}
+@media (min-width: 0) and (max-width: 575.98px) {
+  .product-list {
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .product-list {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .product-list {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .product-list {
+    display: grid;
+    gap: 2.4rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1200px) {
+  .product-list {
+    display: grid;
+    gap: 3.2rem;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  height: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* width and height for the scrollbar track */
+  /* background color for the scrollbar track */
+  /* scrollbar thumb */
+  /* scrollbar thumb on hover */
+  width: 100%;
+}
+html ::-webkit-scrollbar,
+body ::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+html ::-webkit-scrollbar-track,
+body ::-webkit-scrollbar-track {
+  background-color: #f2f2f2;
+}
+html ::-webkit-scrollbar-thumb,
+body ::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 1rem;
+}
+html ::-webkit-scrollbar-thumb:hover,
+body ::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+main {
+  min-height: calc(100vh - 6rem);
+}
+
+@media (min-width: 0px) and (max-width: 575.98px) {
+  .container {
+    padding: 0.8rem;
+    max-width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    padding: 0.8rem;
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    padding: 1.6rem;
+    max-width: 99.2rem;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    padding: 2.4rem;
+    max-width: 120rem;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    padding: 3.2rem;
+    max-width: 192rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

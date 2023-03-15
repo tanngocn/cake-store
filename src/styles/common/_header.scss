@@ -1,0 +1,23 @@
+@use '../mixin' as mixin;
+
+@use '../variables' as v;
+
+header {
+  position: sticky;
+  top: 0;
+  nav {
+    padding: 2.4rem;
+    min-height: 2rem;
+    background-color: v.$color_primary;
+    ul {
+      list-style-type: none;
+      @include mixin.flexboxLayout(row, 3.2rem, end, center);
+      li {
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: v.$color_white;
+      }
+    }
+  }
+}
