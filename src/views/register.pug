@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content 
+    div(class="form-auth")
+        form(action="/register" name="register" method="post"  )
+            div(class="form-group")
+                h1 Register Account
+            div(class="form-group")
+                label(for="username") Username
+                input(type="username" name="username" id="username" value=`${username ? username : ''}`  required)
+                span(class="txt-error")= error
+            div(class="form-group")
+                label(for="password") Password 
+                input(type="password" name="password" id="password" value=`${password ? password: ''}`  required)
+                span(class="txt-error")= pass_error
+            div(class="form-group")
+                label(for="confirm_password") Confirm password 
+                input(type="password" name="confirm_password" id="confirm_password" value=`${confirm_password? confirm_password: ''}` required)
+            div(class="form-group flex-column")
+                button(class="btn" type="submit" ) Register
+                a(href="/login" ) Login  

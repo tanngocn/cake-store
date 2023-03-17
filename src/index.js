@@ -4,14 +4,16 @@ const session = require('express-session');
 const cors = require('cors');
 const path = require('path');
 const homeRouter = require('./routes/home-router');
+const nocache = require('nocache');
 const store = session.MemoryStore();
 const app = express();
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
 app.use(express.static(path.resolve(__dirname, '../public')));
-
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(nocache());
 
 app.use(
   session({

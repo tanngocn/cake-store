@@ -1,10 +1,15 @@
 header 
     nav
+        div(class="logo")
+            img(src='/images/logo.png', alt="logo")
         ul 
-            li home
-            li about
-            li product
+            li  
+                a( href="/")  Home 
             li 
-                button(class="btn")  login 
+                a( href="/about")  about 
             li 
-                button(class="btn")  profile
+                a( href="/product")  product 
+            li 
+                a(class="btn" href="./login")  login 
+            li 
+                a(class="btn")  profile

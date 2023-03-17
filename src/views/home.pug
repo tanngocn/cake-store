@@ -4,8 +4,17 @@ block content
     h1= title
     div(class="product-list")
         each cake in cakes 
-            div(class="item")
+            div(class="item"  onclick="viewDetail('" + cake.id + "')")
                 img(src="", alt="img")
                 h2= cake.name
                 p= cake.description 
                 span= cake.price
+   
+        block script  
+            script. 
+                function viewDetail(id){
+                    const a = document.createElement('a');
+                    a.href= `./${id}`;
+                    a.click();
+                } 
+   

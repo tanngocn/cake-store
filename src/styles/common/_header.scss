@@ -6,17 +6,31 @@ header {
   position: sticky;
   top: 0;
   nav {
-    padding: 2.4rem;
+    padding: 0rem 6.4rem;
     min-height: 2rem;
     background-color: v.$color_primary;
+    @include mixin.flexboxLayout(row, 3.2rem, space-between, center);
+    .logo {
+      width: 12rem;
+      height: 12rem;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+      }
+    }
     ul {
       list-style-type: none;
       @include mixin.flexboxLayout(row, 3.2rem, end, center);
       li {
-        font-size: 1.8rem;
-        text-transform: uppercase;
-        font-weight: bold;
-        color: v.$color_white;
+        min-width: 6rem;
+        a {
+          font-size: 1.8rem;
+          text-transform: uppercase;
+          font-weight: bold;
+          color: v.$color_white;
+          text-decoration: none;
+        }
       }
     }
   }

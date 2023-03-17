@@ -1,0 +1,42 @@
+@use '../mixin' as mixin;
+@use '../variables' as v;
+.form-auth {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid v.$color_secondary;
+  padding: 3.2rem;
+  border-radius: 0.8rem;
+  form {
+    @include mixin.flexboxLayout(column, 2rem, center, center);
+    .form-group {
+      min-width: 100%;
+      h1 {
+        font-size: 2.4rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 1.2rem;
+        font-size: 1.6rem;
+      }
+      input {
+        border-radius: 0.4rem;
+        padding: 0 1rem;
+        font-size: 1.6rem;
+        height: 4.4rem;
+        width: 100%;
+      }
+      span {
+        display: block;
+        font-size: 1.2rem;
+        min-height: 2rem;
+      }
+      &.flex-column {
+        @include mixin.flexboxLayout(column, 1rem, center, center);
+        a {
+          font-size: 1.4rem;
+          color: v.$color_secondary;
+        }
+      }
+    }
+  }
+}
