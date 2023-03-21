@@ -1,6 +1,9 @@
 extends layout.pug
 
+block variables
+    - var user= user 
 block content
+  
     h1= title
     div(class="product-list")
         each cake in cakes 
@@ -9,7 +12,6 @@ block content
                 h2= cake.name
                 p= cake.description 
                 span= cake.price
-   
         block script  
             script. 
                 function viewDetail(id){

@@ -2,15 +2,15 @@ extends layout.pug
 
 block content 
     div(class="form-auth")
-        form(action="" method="POST")
+        form(action="/login" name="login" method="post")
             div(class="form-group")
                 h1 Login Page
             div(class="form-group")
-                label(for="email") Username
-                input(type="email" name="email" id="email" required)
+                label(for="username") Username
+                input(type="username" name="username" id="username" required)
             div(class="form-group")
                 label(for="password") Password 
                 input(type="password" name="password" id="password" required)
             div(class="form-group flex-column")
-                button(class="btn") Login 
+                button(class="btn" type="submit" ) Login 
                 a(href="/register") Register  

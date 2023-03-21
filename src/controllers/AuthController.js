@@ -15,14 +15,10 @@ class AuthController {
       if (index === -1) {
         return next();
       }
-
       res.status(400).render('register', { error: 'User is exist', ...req.body });
-
       res.end();
     });
   }
-
-  login(req, res, next) {}
 
   async register(req, res, next) {
     const { username, password } = req.body;

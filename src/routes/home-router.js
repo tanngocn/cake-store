@@ -1,13 +1,27 @@
 const express = require('express');
-
-const db = require('../db');
-const { QUERY_API } = require('../utils/constants');
+const passport = require('passport');
 const homeRouter = express.Router();
 const AuthController = require('../controllers/AuthController');
+const HomeController = require('../controllers/HomeController');
 const auth = new AuthController();
+const home = new HomeController();
 
 homeRouter.get('/login', async (req, res, next) => {
   res.render('login');
+});
+homeRouter.post(
+  '/login',
+  passport.authenticate('local', {
+    failureRedirect: '/login',
+  }),
+  (req, res) => {
+    res.redirect('/');
+  }
+);
+homeRouter.get('/logout', (req, res) => {
+  req.logout(() => {
+    res.redirect('/');
+  });
 });
 // register
 homeRouter.get('/register', async (req, res, next) => {
@@ -15,20 +29,6 @@ homeRouter.get('/register', async (req, res, next) => {
 });
 homeRouter.post('/register', auth.checkValidationAccount, auth.register);
 
-homeRouter.get('/:id', async (req, res, next) => {
-  db.query(QUERY_API.cakes_detail, [req.params.id], (err, result) => {
-    if (result) {
-      res.render('cake-detail', { cake: result[0] });
-    }
-  });
-});
-
-homeRouter.get('/', async (req, res, next) => {
-  db.query(QUERY_API.cakes, [], (err, result) => {
-    if (result) {
-      res.render('home', { cakes: result });
-    }
-  });
-});
-
+// homeRouter.get('/:id', home.cake_detail);
+homeRouter.get('/', home.cakes);
 module.exports = homeRouter;

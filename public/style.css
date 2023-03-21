@@ -165,6 +165,76 @@ header nav ul li a {
   color: #f08080;
 }
 
+aside nav .logo {
+  width: 20rem;
+  height: 20rem;
+  margin: 0 auto;
+}
+aside nav .logo img {
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+aside nav ul li {
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #fff;
+  transition: all 0.2s;
+}
+aside nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+aside nav ul li:last-child {
+  border-bottom: none;
+}
+aside nav ul li:hover {
+  background-color: #fff;
+}
+aside nav ul li:hover a {
+  color: #f5d1d7;
+}
+
+.admin-header h1 {
+  position: relative;
+}
+.admin-header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -1rem;
+  left: 0;
+  width: 10rem;
+  height: 0.4rem;
+  background-color: #f08080;
+}
+
+.container.admin-wrapper {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0rem;
+  justify-content: space-between;
+  align-items: start;
+}
+.container.admin-wrapper aside {
+  height: 100vh;
+  background-color: #f5d1d7;
+  flex-basis: 14%;
+  padding: 1rem;
+  max-width: 20%;
+}
+.container.admin-wrapper .content {
+  flex-basis: calc(86% - 2rem);
+}
+.container.admin-wrapper .content .admin-header {
+  padding: 1rem 2rem;
+  color: #f08080;
+}
+.container.admin-wrapper .content .admin-header h1 {
+  font-size: 2.4rem;
+}
+
 * {
   padding: 0;
   margin: 0;

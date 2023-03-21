@@ -4,12 +4,15 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="Cache-control" content="no-cache")
-        title Cake store
+        title Cake store admin
         link(rel="stylesheet", href="style.css")
     body 
         block variables
-        include ../components/common/header.pug
-        main(class="container")
-            block content 
-        include ../components/common/footer.pug
+        main(class="container admin-wrapper")
+            include ../../components/common/admin/aside.pug
+            div(class="content")
+                include ../../components/common/admin/header.pug
+                block content
+                block filter
+                
     block script

@@ -10,6 +10,13 @@ header
             li 
                 a( href="/product")  product 
             li 
-                a(class="btn" href="./login")  login 
-            li 
-                a(class="btn")  profile
+                if user && !user.username || !user
+                    a(class="btn" href="./login") login
+                else if  user && user.username
+                    a(class="btn" href="./logout") logout 
+            if user && user.is_admin 
+                li 
+                    a(class="btn" href="./admin") setting     
+            else if user && !user.is_admin
+                li 
+                    a(class="btn") profile

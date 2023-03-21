@@ -1,0 +1,36 @@
+@use '../../variables' as v;
+aside {
+  nav {
+    .logo {
+      width: 20rem;
+      height: 20rem;
+      margin: 0 auto;
+      img {
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    }
+    ul {
+      li {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+        border-bottom: 1px solid v.$color_white;
+        transition: all 0.2s;
+        a {
+          color: v.$color_white;
+          text-decoration: none;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+        &:hover {
+          background-color: v.$color_white;
+          a {
+            color: v.$color_primary;
+          }
+        }
+      }
+    }
+  }
+}
