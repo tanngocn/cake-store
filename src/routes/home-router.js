@@ -29,6 +29,6 @@ homeRouter.get('/register', async (req, res, next) => {
 });
 homeRouter.post('/register', auth.checkValidationAccount, auth.register);
 
-// homeRouter.get('/:id', home.cake_detail);
 homeRouter.get('/', home.cakes);
+homeRouter.get('/:id', home.cake_detail);
 module.exports = homeRouter;
