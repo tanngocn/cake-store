@@ -7,6 +7,7 @@ const homeRouter = require('./routes/home-router');
 const adminRouter = require('./routes/admin-router');
 
 const app = express();
+app.use(cors());
 const passport = require('passport');
 const session = require('express-session');
 const store = session.MemoryStore();
@@ -22,6 +23,7 @@ console.log(path.resolve(__dirname, 'views'));
 
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'pug');
+
 app.use(express.static(publicPath));
 app.use(express.static(controllerPath));
 app.use(express.static(componentsPath));
@@ -49,7 +51,6 @@ require('./config/passort');
 app.use('/', homeRouter);
 app.use('/admin', adminRouter);
 
-app.use(cors());
 const PORT = process.env.APP_PORT || 3000;
 
 app.listen(PORT);
