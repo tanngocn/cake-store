@@ -1,0 +1,24 @@
+@use '../mixin' as mixin;
+@use '../variables' as v;
+
+form.admin-searchbox {
+  @include mixin.flexboxLayout(row, 2rem, start, center);
+  padding: 2rem;
+  .group {
+    @include mixin.flexboxLayout(column, 0.6rem, start, start);
+    font-size: 1.4rem;
+    label {
+      text-transform: capitalize;
+    }
+    input,
+    select {
+      font-size: 1.4rem;
+      height: 3.2rem;
+      min-width: 20rem;
+      display: block;
+      border-radius: 0.4rem;
+      padding: 0 0.8rem;
+      border: 0.16rem solid v.$color_black;
+    }
+  }
+}

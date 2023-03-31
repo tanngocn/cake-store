@@ -114,6 +114,38 @@ header nav ul li a {
   }
 }
 
+form.admin-searchbox {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: start;
+  align-items: center;
+  padding: 2rem;
+}
+form.admin-searchbox .group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.6rem;
+  justify-content: start;
+  align-items: start;
+  font-size: 1.4rem;
+}
+form.admin-searchbox .group label {
+  text-transform: capitalize;
+}
+form.admin-searchbox .group input,
+form.admin-searchbox .group select {
+  font-size: 1.4rem;
+  height: 3.2rem;
+  min-width: 20rem;
+  display: block;
+  border-radius: 0.4rem;
+  padding: 0 0.8rem;
+  border: 0.16rem solid #34495e;
+}
+
 .form-auth {
   max-width: 400px;
   margin: 0 auto;

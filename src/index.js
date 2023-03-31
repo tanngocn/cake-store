@@ -14,19 +14,11 @@ const store = session.MemoryStore();
 
 // path static
 const publicPath = path.join(__dirname, '../public');
-const controllerPath = path.join(__dirname, './controllers');
-const componentsPath = path.join(__dirname, './components');
-
-console.log(path.resolve('src/views'));
-
-console.log(path.resolve(__dirname, 'views'));
 
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(express.static(publicPath));
-app.use(express.static(controllerPath));
-app.use(express.static(componentsPath));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -48,8 +40,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 require('./config/passort');
 
-app.use('/', homeRouter);
 app.use('/admin', adminRouter);
+app.use('/', homeRouter);
 
 const PORT = process.env.APP_PORT || 3000;
 

@@ -1,15 +1,10 @@
-- var options=[
-    {label: 'less than $5',  value: '< 5'},
-    {label: 'between $5 than $20',  value: 'BETWEEN 5 AND 20'},
-    {label: 'greater than $20', value: '> 20'}
-]
-
+- var prices = [ {label: 'less than $5',  value: '< 5'}, {label: 'between $5 than $20',  value: 'BETWEEN 5 AND 20'}, {label: 'greater than $20', value: '> 20'}]
 form(class="admin-searchbox" action="/cake" method="GET")
-    div(class="group")
-        label(for="") name 
-        input(type="text")
-      div(class="group")
-        label(for="") price 
-        select
-            each option of options 
-                option(value={option.value})=option.label 
+  div(class="group")
+      label(for="") name: 
+      input(type="text")
+  div(class="group")
+      label(for="") price: 
+      select
+          each option of prices 
+              option(value=option.value)=option.label 

@@ -5,7 +5,6 @@ const { QUERY_API } = require('../utils/constants');
 class AuthController {
   checkValidationAccount(req, res, next) {
     const { confirm_password, password, username } = req.body || {};
-
     if (confirm_password !== password) {
       return res.status(400).render('register', { ...req.body, pass_error: 'password not match confirm password' });
     }

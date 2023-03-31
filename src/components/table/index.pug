@@ -1,0 +1,14 @@
+- var columns = ['id', 'name', 'price', 'quantity_in_shock'];
+- var rows = [{id:'1', name: 'cake-1', price:'$20.12', quantity_in_shock: 1 },{id:'2', name: 'cake-2', price:'$20.12', quantity_in_shock: 2 } ]
+table(class="table-component")
+    thead
+        tr
+            each column on columns 
+                th= column                
+    tbody
+        each row on rows 
+            tr 
+                td=row.id 
+                td=row.name 
+
+
