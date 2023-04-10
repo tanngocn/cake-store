@@ -18,7 +18,7 @@ const publicPath = path.join(__dirname, '../public');
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(express.static(publicPath));
+app.use('/public', express.static(publicPath));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

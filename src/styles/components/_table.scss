@@ -1,2 +1,47 @@
+@use '../variables' as v;
+@forward '../common/pagination';
 .table-component {
+  width: calc(100% - 3.2rem);
+  margin: 0 1.6rem;
+  table-layout: auto;
+  border-collapse: collapse;
+
+  &.cake-table {
+    th,
+    td {
+      &:first-child {
+        width: 6%;
+      }
+      &:nth-child(2) {
+        width: 40%;
+      }
+      &:nth-child(4),
+      &:nth-child(3) {
+        width: 10%;
+      }
+      &:last-child {
+        width: 15%;
+        text-align: center;
+      }
+    }
+  }
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid v.$color_gray;
+  }
+  th {
+    background-color: v.$color_secondary;
+    color: v.$color_white;
+  }
+  tfoot {
+    tr {
+      td {
+        border: none;
+        text-align: right !important;
+        padding: 0.8rem 0;
+      }
+    }
+  }
 }

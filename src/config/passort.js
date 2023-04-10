@@ -9,7 +9,8 @@ passport.use(
     db.query(QUERY_API.user_detail, [username], async (err, user) => {
       if (err) return done(err);
       if (!user) return done({ error: 'account not exist' }, false);
-      const isMatched = await bcrypt.compare(password, user[0].password);
+
+      const isMatched = user && user[0] && (await bcrypt.compare(password, user[0].password));
       if (!isMatched) return done({ error: 'username or password not right' }, false);
       return done(null, user);
     });

@@ -1,14 +1,40 @@
-- var columns = ['id', 'name', 'price', 'quantity_in_shock'];
-- var rows = [{id:'1', name: 'cake-1', price:'$20.12', quantity_in_shock: 1 },{id:'2', name: 'cake-2', price:'$20.12', quantity_in_shock: 2 } ]
-table(class="table-component")
+- var columns = ['id', 'name', 'price', 'quantity_in_shock', 'type', 'action']
+- var currentPage = 1; 
+table(class=styleTable)
     thead
         tr
-            each column on columns 
-                th= column                
+        each column in columns 
+            th= column                
     tbody
-        each row on rows 
+       if pages.length > 0  
+        each row in data 
             tr 
-                td=row.id 
-                td=row.name 
-
-
+                td= row.id 
+                td= row.name 
+                td= row.price 
+                td= row.quantity_in_shock
+                td= row.type_name
+                td
+                    div(class="btn-group")
+                        button(class="btn btn--warning") edit 
+                        button(class="btn btn--danger") delete
+        else 
+            tr 
+               td(colspan= columns.length) No data
+    tfoot  
+        tr
+            td(colspan= columns.length)
+                div(class="pagination-list")
+                    each page in pages
+                        span(class=`item ${currentPage === page ? 'active': ''}` onclick=`changePage(${page})`)=page
+script. 
+    function changePage(page){
+        currentPage = page;
+        document.querySelectorAll('.pagination-list .item').forEach(item => {
+        if (parseInt(item.innerText) === currentPage) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+        });
+    }

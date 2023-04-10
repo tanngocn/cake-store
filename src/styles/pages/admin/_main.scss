@@ -2,7 +2,7 @@
 @use '../../variables' as v;
 @forward './aside';
 @forward './header';
-
+@forward '../../components/table';
 .container.admin-wrapper {
   padding: 0;
   @include mixin.flexboxLayout(row, 0rem, space-between, start);

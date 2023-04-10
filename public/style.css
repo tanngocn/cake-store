@@ -52,10 +52,46 @@ header nav ul li a {
   color: #fff;
   min-width: 10rem;
   transition: all 0.2s;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  border: 1px solid transparent;
 }
 .btn:hover {
   background-color: #fff;
   color: #f5d1d7;
+}
+.btn--primary {
+  background-color: #f5d1d7;
+}
+.btn--primary:hover {
+  background-color: #fff;
+  color: #f5d1d7;
+  border: 1px solid #f5d1d7;
+}
+.btn--danger {
+  background-color: #e74c3c;
+}
+.btn--danger:hover {
+  background-color: #fff;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+.btn--warning {
+  background-color: #f39c12;
+}
+.btn--warning:hover {
+  background-color: #fff;
+  color: #f39c12;
+  border: 1px solid #f39c12;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .product-list {
@@ -114,16 +150,24 @@ header nav ul li a {
   }
 }
 
-form.admin-searchbox {
+.filter-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: end;
+}
+.filter-wrapper form.admin-searchbox {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 2rem;
   justify-content: start;
   align-items: center;
-  padding: 2rem;
 }
-form.admin-searchbox .group {
+.filter-wrapper form.admin-searchbox .group {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -132,11 +176,11 @@ form.admin-searchbox .group {
   align-items: start;
   font-size: 1.4rem;
 }
-form.admin-searchbox .group label {
+.filter-wrapper form.admin-searchbox .group label {
   text-transform: capitalize;
 }
-form.admin-searchbox .group input,
-form.admin-searchbox .group select {
+.filter-wrapper form.admin-searchbox .group input,
+.filter-wrapper form.admin-searchbox .group select {
   font-size: 1.4rem;
   height: 3.2rem;
   min-width: 20rem;
@@ -240,6 +284,71 @@ aside nav ul li:hover a {
   background-color: #f08080;
 }
 
+.pagination-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.4rem;
+  justify-content: end;
+  align-items: center;
+}
+.pagination-list .item {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-weight: 700;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.pagination-list .item.active, .pagination-list .item:hover {
+  color: #fff;
+  background-color: #f08080;
+  border: 1px solid #f08080;
+}
+
+.table-component {
+  width: calc(100% - 3.2rem);
+  margin: 0 1.6rem;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+.table-component.cake-table th:first-child,
+.table-component.cake-table td:first-child {
+  width: 6%;
+}
+.table-component.cake-table th:nth-child(2),
+.table-component.cake-table td:nth-child(2) {
+  width: 40%;
+}
+.table-component.cake-table th:nth-child(4), .table-component.cake-table th:nth-child(3),
+.table-component.cake-table td:nth-child(4),
+.table-component.cake-table td:nth-child(3) {
+  width: 10%;
+}
+.table-component.cake-table th:last-child,
+.table-component.cake-table td:last-child {
+  width: 15%;
+  text-align: center;
+}
+.table-component th,
+.table-component td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+.table-component th {
+  background-color: #f08080;
+  color: #fff;
+}
+.table-component tfoot tr td {
+  border: none;
+  text-align: right !important;
+  padding: 0.8rem 0;
+}
+
 .container.admin-wrapper {
   padding: 0;
   display: flex;
@@ -310,7 +419,7 @@ main {
 }
 
 .txt-error {
-  color: red;
+  color: #e74c3c;
 }
 
 @media (min-width: 0px) and (max-width: 575.98px) {

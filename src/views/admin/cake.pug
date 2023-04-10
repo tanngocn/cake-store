@@ -1,0 +1,13 @@
+extends layout.pug
+
+block variables
+    - var styleTable = 'table-component cake-table'
+    - var data = cakes
+    - var pages= pages
+
+block filter
+    div(class='filter-wrapper')
+        include ../../components/search-box/cake.pug
+        button(class="btn btn--primary")= "Create new Cake"
+block content
+    include ../../components/table/index.pug

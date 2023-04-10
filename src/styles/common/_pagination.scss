@@ -1,0 +1,24 @@
+@use '../mixin' as mixin;
+@use '../variables' as v;
+.pagination {
+  &-list {
+    @include mixin.flexboxLayout(row, 0.4rem, end, center);
+    .item {
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      border: 1px solid v.$color_gray;
+      text-align: center;
+      font-weight: 700;
+      transition: all 0.2s;
+      cursor: pointer;
+      &.active,
+      &:hover {
+        color: v.$color_white;
+        background-color: v.$color_secondary;
+        border: 1px solid v.$color_secondary;
+      }
+    }
+  }
+}

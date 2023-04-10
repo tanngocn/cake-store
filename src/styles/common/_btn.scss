@@ -1,4 +1,5 @@
 @use '../variables' as v;
+@use '../mixin' as mixin;
 
 .btn {
   padding: 0.8rem 1.6rem;
@@ -10,8 +11,39 @@
   color: v.$color_white;
   min-width: 10rem;
   transition: all 0.2s;
+  border-radius: 0.4rem;
+  font-weight: 600;
+  border: 1px solid transparent;
   &:hover {
     background-color: v.$color_white;
     color: v.$color_primary;
   }
+
+  &--primary {
+    background-color: v.$color_primary;
+    &:hover {
+      background-color: v.$color_white;
+      color: v.$color_primary;
+      border: 1px solid v.$color_primary;
+    }
+  }
+  &--danger {
+    background-color: v.$color_err;
+    &:hover {
+      background-color: v.$color_white;
+      color: v.$color_err;
+      border: 1px solid v.$color_err;
+    }
+  }
+  &--warning {
+    background-color: v.$color_warning;
+    &:hover {
+      background-color: v.$color_white;
+      color: v.$color_warning;
+      border: 1px solid v.$color_warning;
+    }
+  }
+}
+.btn-group {
+  @include mixin.flexboxLayout(row, 1rem, center, center);
 }
