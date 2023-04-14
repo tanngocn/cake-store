@@ -20,7 +20,7 @@ app.set('view engine', 'pug');
 
 app.use('/public', express.static(publicPath));
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false, limit: '3mb' }));
 app.use(express.json());
 
 app.use(

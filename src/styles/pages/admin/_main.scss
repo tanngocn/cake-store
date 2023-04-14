@@ -2,6 +2,7 @@
 @use '../../variables' as v;
 @forward './aside';
 @forward './header';
+@forward './cake-form';
 @forward '../../components/table';
 .container.admin-wrapper {
   padding: 0;

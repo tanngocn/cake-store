@@ -31,6 +31,12 @@ main {
 .txt-error {
   color: v.$color_err;
 }
+.txt-right {
+  text-align: right;
+}
+.txt-left {
+  text-align: left;
+}
 
 .container {
   @media (min-width: 0px) and (max-width: v.$screen_xs_max) {

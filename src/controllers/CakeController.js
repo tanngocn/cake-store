@@ -56,7 +56,20 @@ class CakeController {
       next();
     });
   }
-
+  checkCakeExisting(req, res, next) {
+    db.query(QUERY_API.cakes_detail, [req.params.id], (err, result) => {
+      if (err) {
+        res.send(err);
+        return;
+      }
+      if (!result) {
+        res.status(404);
+        return;
+      }
+      req.cakeDetail = result[0];
+      next();
+    });
+  }
   cakes(req, res, next) {
     db.query(req.queryFilter, req.paramsFilter, (err, result) => {
       if (err) {
@@ -64,6 +77,17 @@ class CakeController {
         return;
       }
       res.render('admin/cake', { title: 'Cakes', cakes: result, pages: req.pages });
+    });
+  }
+  cake_types(req, res, next) {
+    db.query(QUERY_API.cake_type, [], (err, result) => {
+      if (err) {
+        res.send(err);
+        return;
+      }
+      console.log('dasdsa', result);
+      req.cakeTypes = result;
+      next();
     });
   }
 }

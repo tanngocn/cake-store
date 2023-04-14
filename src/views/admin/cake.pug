@@ -8,6 +8,6 @@ block variables
 block filter
     div(class='filter-wrapper')
         include ../../components/search-box/cake.pug
-        button(class="btn btn--primary")= "Create new Cake"
+        a( href="./cake/add" class="btn btn--primary")= "Create new Cake"
 block content
     include ../../components/table/index.pug

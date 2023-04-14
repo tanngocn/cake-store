@@ -10,9 +10,18 @@ class AdminController {
       res.redirect('/');
     }
   }
+
   show(req, res, next) {
     res.render('admin', { title: 'Admin page' });
   }
+  show_add_cakes(req, res, next) {
+    res.render('admin/add-cake', { title: 'Create cake', types: req.cakeTypes, cake: {} });
+  }
+  add_cake_action(req, res, next) {
+    console.log(req);
+  }
+
+  update_cake_action(req, res, next) {}
 }
 
 module.exports = AdminController;

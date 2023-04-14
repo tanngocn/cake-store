@@ -1,0 +1,11 @@
+@use '../../mixin' as mixin;
+@use '../../variables' as v;
+.admin-container {
+  @include mixin.container(800px, 16px);
+  .form-cake {
+    padding: 20px;
+    border: 1px solid v.$color_black;
+    width: 100%;
+    border-radius: 4px;
+  }
+}
