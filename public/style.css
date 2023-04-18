@@ -100,15 +100,27 @@ header nav ul li a {
 .product-list .item {
   border: 1px solid #f5d1d7;
   padding: 1.6rem;
+  border-radius: 0.8rem;
 }
 .product-list .item h2 {
   font-size: 2rem;
-  margin-bottom: 2.4rem;
+  margin-bottom: 1.2rem;
 }
 .product-list .item p {
   font-size: 1.6rem;
   margin: 0;
   min-height: 10rem;
+}
+.product-list .item .image-box {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.product-list .item .image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 .product-list .item span {
   font-size: 1.2rem;
@@ -348,6 +360,9 @@ aside nav ul li:hover a {
   table-layout: auto;
   border-collapse: collapse;
 }
+.table-component tbody tr {
+  border: 1px solid #ddd;
+}
 .table-component.cake-table th:first-child,
 .table-component.cake-table td:first-child {
   width: 6%;
@@ -370,7 +385,6 @@ aside nav ul li:hover a {
 .table-component td {
   padding: 8px;
   text-align: left;
-  border: 1px solid #ddd;
 }
 .table-component th {
   background-color: #f08080;
@@ -389,10 +403,10 @@ aside nav ul li:hover a {
   flex-direction: row;
   gap: 0rem;
   justify-content: space-between;
-  align-items: start;
+  align-items: stretch;
+  height: 100vh;
 }
 .container.admin-wrapper aside {
-  height: 100vh;
   background-color: #f5d1d7;
   flex-basis: 14%;
   padding: 1rem;
@@ -461,6 +475,10 @@ main {
 
 .txt-left {
   text-align: left;
+}
+
+.txt-center {
+  text-align: center;
 }
 
 @media (min-width: 0px) and (max-width: 575.98px) {

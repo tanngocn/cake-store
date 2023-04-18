@@ -1,4 +1,3 @@
-- var columns = ['id', 'name', 'price', 'quantity_in_shock', 'type', 'action']
 - var currentPage = 1; 
 table(class=styleTable)
     thead
@@ -6,21 +5,21 @@ table(class=styleTable)
         each column in columns 
             th= column                
     tbody
-       if pages.length > 0  
-        each row in data 
-            tr 
-                td= row.id 
-                td= row.name 
-                td= row.price 
-                td= row.quantity_in_shock
-                td= row.type_name
-                td
-                    div(class="btn-group")
-                        button(class="btn btn--warning") edit 
-                        button(class="btn btn--danger") delete
-        else 
-            tr 
-               td(colspan= columns.length) No data
+        if pages.length > 0  
+            each row in data 
+                tr 
+                    td= row.id 
+                    td= row.name 
+                    td= row.price 
+                    td= row.quantity_in_shock
+                    td= row.type_name
+                    td
+                        div(class="btn-group")
+                            a(href=url+row.id class="btn btn--warning") edit 
+                            a(class="btn btn--danger") delete
+            else 
+                tr 
+                    td(colspan= columns.length) No data
     tfoot  
         tr
             td(colspan= columns.length)

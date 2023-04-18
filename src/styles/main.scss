@@ -38,6 +38,9 @@ main {
   text-align: left;
 }
 
+.txt-center{
+  text-align: center;
+}
 .container {
   @media (min-width: 0px) and (max-width: v.$screen_xs_max) {
     padding: 1.6rem;

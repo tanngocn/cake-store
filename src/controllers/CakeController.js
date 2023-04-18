@@ -57,6 +57,7 @@ class CakeController {
     });
   }
   checkCakeExisting(req, res, next) {
+    console.log(req.params.id);
     db.query(QUERY_API.cakes_detail, [req.params.id], (err, result) => {
       if (err) {
         res.send(err);
@@ -66,9 +67,24 @@ class CakeController {
         res.status(404);
         return;
       }
-      req.cakeDetail = result[0];
+      req.cake_detail = result[0];
       next();
     });
+  }
+  checkValidation(req, res, next) {
+    const params = Object.keys(req.body);
+    const errors = [];
+    params.map(param => {
+      if (['file', 'description'].indexOf(param) === -1 && !req.body[param]) {
+        errors.push(`${param} is required`)
+      }
+    })
+    if (errors.length > 0) {
+      res.status(400).render('admin/add-cake', { title: 'Create cake', types: req.cakeTypes, cake: { ...req.body } });
+      return;
+    }
+
+    next();
   }
   cakes(req, res, next) {
     db.query(req.queryFilter, req.paramsFilter, (err, result) => {
@@ -90,6 +106,27 @@ class CakeController {
       next();
     });
   }
+  add_cake_action(req, res, next) {
+    const { name, type_id, price, quantity_in_shock, image, description } = req.body;
+    db.query(QUERY_API.add_cake, [name, type_id, price, quantity_in_shock, image, description], (err, result) => {
+      if (err) {
+        res.status(500).send(`some thing wrong please check function, ${err}`);
+        return;
+      }
+      res.status(200).render('admin/cake', { title: 'Cakes', cakes: result, pages: req.pages });
+    });
+  }
+
+
+  update_cake_action(req, res, next) {
+    console.log('vao day roi ah', req.body);
+    const { file, name, type_id, price, quantity_in_shock, image, description } = req.body;
+    let query = '';
+    if (file && image) {
+      query += 'image  = $1'
+    }
+  }
+
 }
 
 module.exports = CakeController;

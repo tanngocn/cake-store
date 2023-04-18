@@ -1,29 +1,30 @@
 extends layout.pug
 
 block variables
-    -var data = [{fieldName: 'name', label: 'Name', required: true}, {fieldName:'cake_type', label: 'Cake type', required: true}, {fieldName: 'price', label: 'Price', required: true }, {fieldName: 'quantity_in_shock', label: 'Quantity', required: false}, {fieldName: 'description', label: 'Description', required: false}]
+    -var data = [{fieldName: 'name', label: 'Name', required: true}, {fieldName:'type_id', label: 'Cake type', required: true}, {fieldName: 'price', label: 'Price', required: true }, {fieldName: 'quantity_in_shock', label: 'Quantity', required: false}, {fieldName: 'description', label: 'Description', required: false}]
 block content
-    div(class="admin-container")
-        form(action='/admin/cake/add' method="POST" class="form-cake" onsubmit="handleSubmit"  entype="multipart/form-data")
-            div(class="form-group")
-                label(for="file") Cake image 
+    .admin-container 
+        form(action=cake.id ? `/admin/cake/update/${cake.id}?_method=PUT` :'/admin/cake/add' method="POST" class="form-cake" onsubmit="handleSubmit" entype="multipart/form-data")
+          
+            .form-group
+                label(for="file")= "Cake image" 
                     div(class="box-image")
-                      img(src="/public/images/default_image.png" id="cakeImage")
-                input(type="file" id="file" name="file" value={fileUrl} hidden onchange="handleUploadFile(event)")
-                input(type="text" value={fileUrl} name="fileUrl" id="fileUrl"  hidden)
+                        img(src= cake.id ? cake.image ? cake.image :"/public/images/default_image.png" :"/public/images/default_image.png" id="cakeImage")
+                input(type="file" id="file" name="file" hidden onchange="handleUploadFile(event)")
+                input(type="text" value= fileUrl ? fileUrl : cake.image ? cake.image:"/public/images/default_image.png" name="image" id="image"  hidden)
             each item in data 
-                div(class="form-group")
+                .form-group
                     label(for=item.fieldName)=item.label
-                    if  ['description', 'cake_type'].indexOf(item.fieldName) === -1
-                        input(type=item.fieldName!=='quantity_in_shock' ? 'text' : 'number' name=item.fieldName id=item.fieldName required=item.required ) 
-                    if item.fieldName === 'description' && item.fieldName !== 'cake_type'
-                        textarea(name=item.fieldName id=item.fieldName required=item.required )
-                    if item.fieldName === 'cake_type'
-                        select(name="cake_type")
+                    if  ['description', 'type_id'].indexOf(item.fieldName) === -1
+                        input(type=item.fieldName!=='quantity_in_shock' ? 'text' : 'number' value=cake.id ? cake[item.fieldName] : '' name=item.fieldName id=item.fieldName required=item.required ) 
+                    if item.fieldName === 'description' && item.fieldName !== 'type_id'
+                        textarea(name=item.fieldName id=item.fieldName required=item.required )= cake.id ? cake[item.fieldName] : '' 
+                    if item.fieldName === 'type_id'
+                        select(name="type_id" value=cake.id ? cake[item.fieldName] : types[0].value)
                             each type in types
                                 option(value=type.id)=type.type_name
             div(class="form-group txt-right")
-                button(type="submit" class="btn btn--primary") Create cake
+                button(type="submit" class="btn btn--primary")= cake.id ? "Save" :"Create cake" 
         script.   
             function handleUploadFile(event){
                 const fileInput = event.target.files[0];
@@ -31,11 +32,9 @@ block content
                 readFile.readAsDataURL(fileInput)
                 readFile.addEventListener('load', (e)=>{
                     document.querySelector('#cakeImage').src= e.target.result;         
-                    document.querySelector('#fileUrl').value= e.target.result;
+                    document.querySelector('#image').value= e.target.result;
                 })
             }
             function handleSubmit(e){
                 e.preventDefault();
             }
-
-

@@ -4,10 +4,12 @@ block variables
     - var styleTable = 'table-component cake-table'
     - var data = cakes
     - var pages= pages
+    - var url = 'cake/update/'
+    - var columns = ['id', 'name', 'price', 'quantity_in_shock', 'type', 'action']
 
 block filter
     div(class='filter-wrapper')
         include ../../components/search-box/cake.pug
-        a( href="./cake/add" class="btn btn--primary")= "Create new Cake"
+        a( href="./cake/add" class="btn btn--primary")= "Create new Cake" 
 block content
     include ../../components/table/index.pug

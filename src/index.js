@@ -2,12 +2,11 @@ const express = require('express');
 
 const cors = require('cors');
 const path = require('path');
-
 const homeRouter = require('./routes/home-router');
 const adminRouter = require('./routes/admin-router');
-
 const app = express();
 app.use(cors());
+
 const passport = require('passport');
 const session = require('express-session');
 const store = session.MemoryStore();
@@ -21,6 +20,7 @@ app.set('view engine', 'pug');
 app.use('/public', express.static(publicPath));
 
 app.use(express.urlencoded({ extended: false, limit: '3mb' }));
+
 app.use(express.json());
 
 app.use(

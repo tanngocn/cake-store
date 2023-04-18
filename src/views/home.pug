@@ -7,7 +7,8 @@ block content
     div(class="product-list")
         each cake in cakes 
             div(class="item"  onclick="viewDetail('" + cake.id + "')")
-                img(src="", alt="img")
+                div(class="image-box")
+                    img(src=cake.image ? cake.image: '/public/images/default_image.png', alt="img")
                 h2= cake.name
                 p= cake.description 
                 span= cake.price

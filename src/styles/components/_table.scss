@@ -6,6 +6,11 @@
   table-layout: auto;
   border-collapse: collapse;
 
+  tbody{
+    tr{
+          border: 1px solid v.$color_gray;
+    }
+  }
   &.cake-table {
     th,
     td {
@@ -29,8 +34,9 @@
   td {
     padding: 8px;
     text-align: left;
-    border: 1px solid v.$color_gray;
+
   }
+
   th {
     background-color: v.$color_secondary;
     color: v.$color_white;

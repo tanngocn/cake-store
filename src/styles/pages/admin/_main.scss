@@ -6,9 +6,9 @@
 @forward '../../components/table';
 .container.admin-wrapper {
   padding: 0;
-  @include mixin.flexboxLayout(row, 0rem, space-between, start);
+  @include mixin.flexboxLayout(row, 0rem, space-between, stretch);
+  height: 100vh;
   aside {
-    height: 100vh;
     background-color: v.$color_primary;
     flex-basis: 14%;
     padding: 1rem;
